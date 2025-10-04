@@ -20,4 +20,4 @@ func _process(delta):
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * localSpeed
-		$Player.transform = $Player.transform.translated(velocity)
+		$Player.move_and_collide(velocity)
