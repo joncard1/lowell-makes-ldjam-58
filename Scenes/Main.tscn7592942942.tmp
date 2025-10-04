@@ -325,6 +325,7 @@ tile_map_data = PackedByteArray("AABMACoAAQACAAIAAABMACkAAQACAAIAAABMACgAAQACAAI
 tile_set = SubResource("TileSet_kln2b")
 
 [node name="Player" type="CharacterBody2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(298, 340.5)
@@ -334,15 +335,13 @@ shape = SubResource("RectangleShape2D_idj7w")
 position = Vector2(300, 300)
 texture = ExtResource("2_idj7w")
 
-[node name="MacGuffin1" type="Area2D" parent="."]
-collision_layer = 2
-
-[node name="MacGuffin1CollisionBody" type="CollisionShape2D" parent="MacGuffin1"]
+[node name="MacGuffin1" type="StaticBody2D" parent="."]
 position = Vector2(937, 400)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MacGuffin1"]
 shape = SubResource("RectangleShape2D_kln2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="MacGuffin1"]
-position = Vector2(937, 400)
 texture = ExtResource("4_rgh2o")
-
-[connection signal="body_entered" from="MacGuffin1" to="." method="_on_mac_guffin_1_body_entered"]
