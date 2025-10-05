@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://srgfihk1pt6t"]
+
+[ext_resource type="Texture2D" uid="uid://d1b8f4i62ik1f" path="res://Assets/macguffin1.svg" id="1_2y32j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2xm0"]
+size = Vector2(72, 25.5)
+
+[node name="Macguffin" type="Area2D"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2y32j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_v2xm0")

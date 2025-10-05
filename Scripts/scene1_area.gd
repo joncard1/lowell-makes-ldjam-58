@@ -22,9 +22,13 @@ func _process(delta):
 		velocity = velocity.normalized() * localSpeed
 		$Player.move_and_collide(velocity)
 
-func _on_mac_guffin_1_body_entered(body: Node2D) -> void:
-	# TODO: Add functionality to "collect" this.
-	# TODO: How to access special abilities? What special abilities?
-	$MacGuffin1.hide()
-	$MacGuffin1/MacGuffin1CollisionBody.set_deferred("disabled", true)
-	print_debug("Found MacGuffin1")
+func _on_macguffin_1_body_entered(body: Node2D) -> void:
+	collidedWithMacguffin($Macguffin1)
+
+func _on_macguffin_2_body_entered(body: Node2D) -> void:
+	collidedWithMacguffin($Macguffin2)
+
+func collidedWithMacguffin(macguffin: Node2D) -> void:
+	macguffin.hide()
+	macguffin.get_node("CollisionShape2D").set_deferred("disabled", true)
+	print_debug("Other MacGuffin found")
